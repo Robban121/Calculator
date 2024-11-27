@@ -23,10 +23,10 @@
         function calculateAndSaveSum() {
             const number1 = parseFloat(document.getElementById('number1').value);
             const number2 = parseFloat(document.getElementById('number2').value);
-            const sum = number1 + number2;
+            const sum_value = number1 + number2;
 
             // Display the calculated sum (optional)
-            alert("The sum is: " + sum);
+            alert("The sum is: " + sum_value);
 
             // Send the sum to the server
             fetch('http://localhost:5000/saveSum', {
@@ -34,7 +34,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ sum: sum })
+                body: JSON.stringify({ sum_value: sum_value })
             })
                 .then(response => response.json())
                 .then(result => alert(result.message || result.error))
